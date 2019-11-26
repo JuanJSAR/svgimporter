@@ -643,12 +643,13 @@ namespace SVGImporter
             } else {
                 lastPath += "/";
             }
-            string path = EditorUtility.SaveFilePanel("Save Mesh File", Path.GetDirectoryName(lastPath), Path.GetFileNameWithoutExtension(assetPath)+"-mesh", "asset" );
-            if(!string.IsNullOrEmpty(path))
+            string path = EditorUtility.SaveFilePanelInProject("Save Mesh File", Path.GetFileNameWithoutExtension(assetPath) + "-mesh", "asset", "", Path.GetDirectoryName(lastPath));
+            //string path = EditorUtility.SaveFilePanel("Save Mesh File", Path.GetDirectoryName(lastPath), Path.GetFileNameWithoutExtension(assetPath) + "-mesh.asset", "asset");
+            if (!string.IsNullOrEmpty(path))
             {
-                System.Uri assetFolderPath = new Uri(Application.dataPath);
-                System.Uri outputPath = new Uri(path);
-                path = assetFolderPath.MakeRelativeUri(outputPath).ToString();
+                //System.Uri assetFolderPath = new Uri(Application.dataPath);
+                //System.Uri outputPath = new Uri(path);
+                //path = assetFolderPath.MakeRelativeUri(outputPath).ToString();
 
                 lastSVGRecoveryPath = Path.GetDirectoryName(path);
 
